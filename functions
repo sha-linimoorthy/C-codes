@@ -1,0 +1,67 @@
+Best Programmer 
+
+Baldwin High School's Best Programmer Contest is organized today and the contest hones the student's coding skills by making them solve different challenges. Based on the speed and accuracy with which the students finish the challenges, the Event coordinators will rank the participants and reward them. 
+
+The entry-level challenge was just one problem that the students has to program for. The problem reads like this: 
+
+A positive integer, n, is said to be perfect if the sum of its proper divisors equals the number itself. (Proper divisors include 1 but not the number itself.) If this sum is less than n, the number is deficient, and if the sum is greater than n, the number is abundant. 
+
+The Event coordinators wanted to prepare the answer key for all the problems given in the contest so as to evaluate the submissions of the participants. Write a program using functions that reads a positive integer, determine if the integer is perfect, abundant, or deficient, and outputs the number along with its classification. 
+
+Function Specifications:
+
+Use the function name, return type, and the argument type as:
+
+int findType(int)
+
+The function should return 1 if the given integer is a deficient number, return 0 if it is a perfect number and return -1 if it is an abundant number.
+
+Note:
+
+The main function is already provided and well defined. The function mentioned above is to be defined by you to solve this problem
+
+Input format
+The input consists of an integer that corresponds to the given number.
+
+Output format
+The output should display if the given number is a perfect, abundant, or deficient number.
+
+
+
+
+
+#include<stdio.h>
+int findType(int a);
+// You are using GCC
+int findType(int b)
+{
+    int s=0;
+    int i;
+    for(i=1;i<b;i++)
+    {
+        if(b%i==0)
+            s++;
+    }
+    if(s==b)
+    {
+        return (0);
+    }
+    else if(s<b)
+    {
+        return (1);
+    }
+    else
+    {
+        return (-1);
+    }
+}
+int main()
+{
+    int num;
+    scanf("%d",&num);
+    printf("%d ",num);
+    if(findType(num)==0){printf("is a perfect number");}
+    else if(findType(num)==1){printf("is a deficient number");}
+    else{printf("is an abundant number");}
+    return 0;
+}
