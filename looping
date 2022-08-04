@@ -1,0 +1,69 @@
+An art therapist conducts a workshop to teach the importance of colors in every aspect of life. According to her, the priority of each problem/situation is unique. So it is important to prioritize our problems and solve it level by level.
+
+For demonstrating this, she gave a sheets to every participant and access to unlimited number of color pencils. Each sheet had concentric squares of varied sizes. The participants were asked to color the squares in the each sheet with different colors. Suppose a participant got a sheet of 5 squares, he/she has to use 5 colors.
+
+Write a code to implement this pattern.
+
+Input format
+Single line input which has a positive integer.
+
+Output format
+Output displays the concentric squares as shown in sample test case.
+
+Sample testcases
+Input 1
+6
+Output 1
+6 6 6 6 6 6 6 6 6 6 6 
+6 5 5 5 5 5 5 5 5 5 6 
+6 5 4 4 4 4 4 4 4 5 6 
+6 5 4 3 3 3 3 3 4 5 6 
+6 5 4 3 2 2 2 3 4 5 6 
+6 5 4 3 2 1 2 3 4 5 6 
+6 5 4 3 2 2 2 3 4 5 6 
+6 5 4 3 3 3 3 3 4 5 6 
+6 5 4 4 4 4 4 4 4 5 6 
+6 5 5 5 5 5 5 5 5 5 6 
+6 6 6 6 6 6 6 6 6 6 6 
+Whitelist
+Set 1:
+for
+
+
+
+
+// You are using GCC
+#include<stdio.h>
+int main()
+{
+    int n,i,h,j,k,y[10000],x;
+    scanf("%d",&x);
+    for(i=0;i<x*2-1;i++)
+    {
+        y[i]=x;
+    }
+    for(i=1;i<=x;i++)
+    {
+        for(h=0;y[h]!='\0';h++)
+        {
+            printf("%d ",y[h]);
+        }
+        for(j=i;j<x*2-i-1;j++)
+        {
+            y[j]-=1;
+        }
+        printf("\n");
+    }
+        for(i=1;i<x;i++)
+        {
+            for(j=0;j<x*2-1;j++)
+            {
+                if(y[j]==i)
+                    y[j]+=1;
+            }
+            for(k=0;k<x*2-1;k++)
+            printf("%d ",y[k]);
+            printf("\n");
+        }
+
+}
