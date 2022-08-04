@@ -1,0 +1,65 @@
+Vinay loves to play with numbers. He will give a matrix to his friends and they have to find the saddle point in it. Write a program to obtain a square matrix and find the saddle point in it.
+
+
+
+Note : Saddle point is an element in the matrix which is minimum in its row and maximum in its column.
+
+Input format
+The first line of the input consists of the n value that is the order of the matrix.
+
+The second line consists of the matrix elements separated by a space.
+
+Output format
+The output prints the saddle point along with its position or no saddle point.
+
+Code constraints
+Input consists of square matrix only.
+
+Sample testcases
+Input 1
+3
+1 2 3
+4 5 6
+7 8 9
+Output 1
+Saddle point is in (2,0) and the value is 7
+Code Size : 1024 kb
+C (17)
+}
+
+
+// You are using GCC
+#include<stdio.h>
+int main()
+{
+    int n,i,h,j,k,y[10000],x;
+    scanf("%d",&x);
+    for(i=0;i<x*2-1;i++)
+    {
+        y[i]=x;
+    }
+    for(i=1;i<=x;i++)
+    {
+        for(h=0;y[h]!='\0';h++)
+        {
+            printf("%d ",y[h]);
+        }
+        for(j=i;j<x*2-i-1;j++)
+        {
+            y[j]-=1;
+        }
+        printf("\n");
+    }
+        for(i=1;i<x;i++)
+        {
+            for(j=0;j<x*2-1;j++)
+            {
+                if(y[j]==i)
+                    y[j]+=1;
+            }
+            for(k=0;k<x*2-1;k++)
+            printf("%d ",y[k]);
+            printf("\n");
+        }
+
+}
